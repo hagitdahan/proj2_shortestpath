@@ -1,8 +1,7 @@
 #include <stdio.h>
 #define N 3
 /*this function create matrix from the input of the user*/
-void buildMat(int mat[][N]){
-    printf("please enter %d numbers: \n",(N*N));
+void buildMat(int mat[N][N]){
     for(int i=0;i<N;i++){
         for(int j=0;j<N;j++){
             scanf("%d", &mat[i][j]);
@@ -15,7 +14,7 @@ int min(int x,int y){
     else return y;
 }
 /*this function creat the A^n matrix with the shorset path*/
-void calculateMatrix(int mat[][N]){
+void calculateMatrix(int mat[N][N]){
     int x,y,z;
     for(int k=0;k<N;k++){
         for(int i=0;i<N;i++){
@@ -38,11 +37,11 @@ void calculateMatrix(int mat[][N]){
     }
 }
 
-int thereIsPath(int i,int j,int mat[][N]){
+int thereIsPath(int i,int j,int mat[N][N]){
     if(mat[i][j]!=0) return 1;
     else return 0;
 }
-int shorsetPath(int i,int j, int mat[][N]){
+int shorsetPath(int i,int j, int mat[N][N]){
     if(mat[i][j]!=0) return mat[i][j];
     else return -1;
 }

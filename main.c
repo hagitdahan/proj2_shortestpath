@@ -1,7 +1,7 @@
 #include "my_mat.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#define N 3
 int main(){
     int matrix [N][N];
     char ch;
@@ -10,24 +10,23 @@ int main(){
     while (ch!=68)
     {
         if(ch == 65) {
-             buildMat(matrix);
-         }
+            buildMat(matrix);
+        }
         calculateMatrix(matrix);
         if(ch == 66){
             scanf("%d %d",i,j);
             if(thereIsPath(i,j,matrix)==1)
-                printf("True");
-            else printf("False");
+                printf("True\n");
+            else printf("False\n");
         }
         if(ch == 67){
             scanf("%d %d",i,j);
             int n=shorsetPath(i,j,matrix);
-            printf("%d",n);
+            printf("%d\n",n);
         }
         scanf("%c",&ch);
     }
     
-    exit(NULL);
     // printf("The old matrix is:\n");
     // for(int i=0;i<N;i++){
     //     for(int j=0;j<N;j++){
