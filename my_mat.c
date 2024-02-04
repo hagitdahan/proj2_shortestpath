@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 3
+#define N 4
 /*this function create matrix from the input of the user*/
 void buildMat(int mat[N][N]){
     for(int i=0;i<N;i++){
@@ -15,7 +15,7 @@ int min(int x,int y){
 }
 /*this function creat the A^n matrix with the shorset path*/
 void calculateMatrix(int mat[N][N]){
-    int x,y,z;
+    int x,y,z=0;
     for(int k=0;k<N;k++){
         for(int i=0;i<N;i++){
             for(int j=0;j<N;j++){
@@ -23,20 +23,24 @@ void calculateMatrix(int mat[N][N]){
                 y=mat[i][k];
                 z=mat[k][j];
                 if(i!=j){
-                    if(x!=0 && (y==0 || z==0)){
-                            mat[i][j]=x;
+                    if(x!=0){
+                        if(y!=0 && z!=0){
+                            mat[i][j]=min(x,y+z);
                         }
-                    else if(y==0)
-                        mat[i][j]=0;
-                    else if(z==0)
-                        mat[i][j]=0;
-                    else mat[i][j]=min(x,y+z);
+                        else mat[i][j]=x;
+                    }
+                    else if(y!=0 && z!=0){
+                           mat[i][j]=y+z;
+                        }
+
+                    else mat[i][j]=0;  
+
+        
                 }
             }
         }
     }
 }
-
 int thereIsPath(int i,int j,int mat[N][N]){
     if(mat[i][j]!=0) return 1;
     else return 0;
