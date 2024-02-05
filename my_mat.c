@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 4
+#define N 10
 /*this function create matrix from the input of the user*/
 void buildMat(int mat[N][N]){
     for(int i=0;i<N;i++){

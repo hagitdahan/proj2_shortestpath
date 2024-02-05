@@ -1,22 +1,22 @@
 #include "my_mat.h"
 #include <stdio.h>
 #include <stdlib.h>
-#define N 4
+#define N 10
 int main(){
     int matrix [N][N];
     char ch;
     int i=0;
     int j=0;
-    //scanf("%c",&ch);
-    buildMat(matrix);
-    calculateMatrix(matrix);
-        printf("The new matrix is:\n");
-        for(int i=0;i<N;i++){
-          for(int j=0;j<N;j++){
-            printf("%d      ",matrix[i][j]);
-         }
-        printf("\n"); 
-    }
+    scanf("%c",&ch);
+    // buildMat(matrix);
+    // calculateMatrix(matrix);
+    //     printf("The new matrix is:\n");
+    //     for(int i=0;i<N;i++){
+    //       for(int j=0;j<N;j++){
+    //         printf("%d      ",matrix[i][j]);
+    //      }
+    //     printf("\n"); 
+    // }
     while (ch!=68)
     {
         if(ch == 65) {
