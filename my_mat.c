@@ -41,10 +41,12 @@ void calculateMatrix(int mat[N][N]){
         }
     }
 }
+/*check if thare is a path from i to j if there is return 1 else return 0*/
 int thereIsPath(int i,int j,int mat[N][N]){
     if(mat[i][j]!=0) return 1;
     else return 0;
 }
+/*check if there is path if there is return the length else return -1*/
 int shorsetPath(int i,int j, int mat[N][N]){
     if(mat[i][j]!=0) return mat[i][j];
     else return -1;
