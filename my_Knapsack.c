@@ -65,7 +65,7 @@ int main(){
             printf(" %c",products[i]);
         }
     }
-    printf("\n");
+    
     
     return 0;
 }
