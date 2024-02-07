@@ -17,8 +17,8 @@ int selectItems(int weights[],int values[],int selected_bool[]){
         for(int j=0;j<=C;j++){
             if(i==0||j==0)
             { mat[i][j]=0; }
-            else if(weights[i]<=j) 
-            {mat[i][j]=max(mat[i-1][j],values[i]+mat[i-1][j-(weights[i])]);}
+            else if(weights[i-1]<=j) 
+            {mat[i][j]=max(mat[i-1][j],values[i-1]+mat[i-1][j-(weights[i-1])]);}
             else {mat[i][j]=mat[i-1][j];}
         }
     }
@@ -26,40 +26,35 @@ int selectItems(int weights[],int values[],int selected_bool[]){
     int j=C;
     while(i>0 && j>0){
         if(mat[i][j]==mat[i-1][j]) {
-            selected_bool[i-1]=0;
-            i=i-1; 
+             i=i-1; 
+            selected_bool[i]=0;
+           
         }
         else{
-            selected_bool[i-1]=1;
-            j=j-weights[i];
             i=i-1;
+            selected_bool[i]=1;
+            j=j-weights[i];
+            
         }
     }
-    for(int i=0;i<P;i++){
-        if(selected_bool[i]==1){
-        maxValue=maxValue+values[i+1];
-    }
-}
     
- return maxValue;
+ return mat[P][C];
     
 }
 
 int main(){
     int selected_bool[P];
-    char products[P+1];
-    int values[P+1];
-    int weights[P+1];
-    values[0]=0;
-    weights[0]=0;
-    for(int i=0;i<P+1;i++){
-        scanf(" %c",products[i]);
-        scanf("%d",values[i+1]);
-        scanf("%d",weights[i+1]);
+    char products[P];
+    int values[P]={0};
+    int weights[P]={0};
+    for(int i=0;i<P;i++){
+        scanf(" %c",&products[i]);
+        scanf("%d",&values[i]);
+        scanf("%d",&weights[i]);
     }
     int n=selectItems(weights,values,selected_bool);
     printf("Maximum profit: %d\n",n);
-    char maxProd[6];
+    char maxProd[P+1];
     int indexP=0;
     for(int i=0;i<P;i++){
         if(selected_bool[i]==1) {
@@ -67,7 +62,6 @@ int main(){
             indexP++;
         }
     }
-    printf("%d",indexP);
     maxProd[indexP+1]='\0';
     if(indexP>0) printf("Selected items:");
     while(indexP>0){

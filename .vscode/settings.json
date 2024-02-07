@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/hagit/Desktop/proj2_shortestpath",
+            "binaryPath": "/home/hagit/Desktop/proj2_shortestpath/my_Knapsack",
+            "binaryArgs": []
+        }
+    ]
+}
