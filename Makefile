@@ -12,5 +12,5 @@ my_mat.o: my_mat.h my_mat.c
 	$(CC) $(FLAGS) -fPIC -c my_mat.c 
 
 clean: 
-	rm *.o connections
+	rm *.o my_graph
  
