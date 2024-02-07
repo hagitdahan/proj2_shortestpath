@@ -53,7 +53,9 @@ int main(){
     values[0]=0;
     weights[0]=0;
     for(int i=0;i<P+1;i++){
-        scanf("%c %d %d",products[i],values[i+1],weights[i+1]);
+        scanf(" %c",products[i]);
+        scanf("%d",values[i+1]);
+        scanf("%d",weights[i+1]);
     }
     int n=selectItems(weights,values,selected_bool);
     printf("Maximum profit: %d\n",n);
