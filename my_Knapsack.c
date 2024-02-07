@@ -11,7 +11,6 @@ int max(int x,int y){
 /*this function create the table and enter to selcted_bool the select items and return the max value of all the products*/
 int selectItems(int weights[],int values[],int selected_bool[]){
     /*create the table*/
-    selected_bool[P];
     int maxValue=0;
     int mat[P+1][C+1];
     for(int i=0;i<=P;i++){ 
@@ -47,7 +46,7 @@ int selectItems(int weights[],int values[],int selected_bool[]){
 }
 
 int main(){
-    int selected_bool[P+1];
+    int selected_bool[P];
     char products[P+1];
     int values[P+1];
     int weights[P+1];
@@ -58,9 +57,6 @@ int main(){
     }
     int n=selectItems(weights,values,selected_bool);
     printf("Maximum profit: %d\n",n);
-    for(int i=0;i<P;i++){
-         printf("%d  ",selected_bool[i]);
-    }
     char maxProd[6];
     int indexP=0;
     for(int i=0;i<P;i++){
@@ -76,7 +72,7 @@ int main(){
         printf(" %c",maxProd[indexP]);
         indexP--;
     }
-    printf("]\n");
+    printf("\n");
     
     return 0;
 }
