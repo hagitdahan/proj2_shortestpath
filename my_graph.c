@@ -7,8 +7,8 @@ int main(){
     char ch;
     int i=0;
     int j=0;
-    scanf("%c",&ch);
-    while (ch!=68)
+    int run = scanf("%c",&ch);
+    while (ch!=68 && run!=EOF)
     {
         if(ch == 65) {
             buildMat(matrix);
@@ -20,7 +20,7 @@ int main(){
                 printf("True\n");
             else printf("False\n");
         }
-        if(ch == 67){
+        if(ch == 67 ){
             scanf("%d %d",&i,&j);
             int n=shorsetPath(i,j,matrix);
             printf("%d\n",n);
